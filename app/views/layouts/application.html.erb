@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>It&apos;s Christmas Pickem Time!</h1>
+        <p>I am happy to announce this year's app is Damien-proof and Matt-friendly.<br/>
+          That is, it will text you your gift partner vs. showing them to you.</p>
+        <p>Good luck!</p>
+      </div>
+
+      <div class="container row">
+        <div class="flash">
+           <% if flash[:notice] %>
+             <div class="alert alert-success">
+                 <button type="button" class="close" data-dismiss='alert'>&times;</button>
+                 <%= flash[:notice] %>
+               </div>
+           <% elsif flash.now[:alert] %>
+             <div class="alert alert-danger">
+               <button type="button" class="close" data-dismiss='alert'>&times;</button>
+               <%= flash.now[:alert] %>
+             </div>
+           <% elsif flash[:alert] %>
+             <div class="alert alert-warning">
+               <button type="button" class="close" data-dismiss='alert'>&times;</button>
+               <%= flash[:alert] %>
+             </div>
+           <% end %>
+        </div>
+      </div>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

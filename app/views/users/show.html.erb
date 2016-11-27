@@ -1,0 +1,13 @@
+
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">Thanks, <%= @user.name %></h4>
+    <p>Now, enter your cell number and I will text you your giftee</p>
+    <%= form_for @user, method: :put, html: {class: "form-inline"} do |f| %>
+      <div class="form-group form-group-lg">
+        <%= f.telephone_field :phone, autofocus: true, class: "form-control", placeholder: "555-555-5555" %>
+        <%= f.submit "Send", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+<div>

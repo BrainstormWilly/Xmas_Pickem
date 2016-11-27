@@ -1,0 +1,15 @@
+
+
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">Begin by choosing your name</h4>
+    <div class="list-group">
+      <% @users.each do |u| %>
+        <% disabled = u.giftee==0 ? "list-group-item-action" : "disabled" %>
+        <%= link_to(u, {class: "list-group-item #{disabled}"}) do %>
+          <%= u.name %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<div>
