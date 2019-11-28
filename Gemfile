@@ -37,7 +37,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.6'
   gem 'rb-readline'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
