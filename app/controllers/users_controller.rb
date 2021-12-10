@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       if @user.giftee!=0
         @giftee = User.find(@user.giftee)
       else
-        @giftee = User.where(giftor:0).where.not(id:@user.id).sample
+        @giftee = User.where(giftor:0).where.not(id:@user.id).all.shuffle.first
         @giftee.giftor = @user.id
         @user.giftee = @giftee.id
       end
