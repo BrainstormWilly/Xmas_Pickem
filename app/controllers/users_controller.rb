@@ -27,9 +27,9 @@ class UsersController < ApplicationController
         @user.giftee = @giftee.id
       end
       if @user.save && @giftee.save
-        client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
+        client = Twilio::REST::Client.new ENV['YNO_TWILIO_SID'], ENV['YNO_TWILIO_TOKEN']
         client.messages.create(
-          from: "+#{ENV['TWILIO_NUMBER']}",
+          from: "+#{ENV['YNO_TWILIO_NUMBER']}",
           to: "+1#{@user.phone}",
           body: "#{@user.name}, your giftee is #{@giftee.name}"
         )
